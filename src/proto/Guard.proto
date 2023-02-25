@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+message CTwoFactor_AddAuthenticator_Request {
+  fixed64 steamid = 1;
+  uint64 authenticator_time = 2;
+  fixed64 serial_number = 3;
+  uint32 authenticator_type = 4;
+  string device_identifier = 5;
+  string sms_phone_id = 6;
+  string http_headers = 7;
+  uint32 version = 8;
+}
+
+
+message CTwoFactor_AddAuthenticator_Response {
+  bytes shared_secret = 1;
+  fixed64 serial_number = 2;
+  string revocation_code = 3;
+  string uri = 4;
+  uint64 server_time = 5;
+  string account_name = 6;
+  string token_gid = 7;
+  bytes identity_secret = 8;
+  bytes secret_1 = 9;
+  int32 status = 10;
+  string phone_number_hint = 11;
+}
+
+message CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response {
+  bool success = 1;
+  CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2;
+}
+
+message CRemoveAuthenticatorViaChallengeContinue_Replacement_Token {
+  bytes shared_secret = 1;
+  fixed64 serial_number = 2;
+  string revocation_code = 3;
+  string uri = 4;
+  uint64 server_time = 5;
+  string account_name = 6;
+  string token_gid = 7;
+  bytes identity_secret = 8;
+  bytes secret_1 = 9;
+  int32 status = 10;
+  uint32 steamguard_scheme = 11;
+  fixed64 steamid = 12;
+}
