@@ -1,23 +1,28 @@
 <template>
   <el-row justify="space-evenly">
     <el-col :xs="24" :sm="18" :md="15" :lg="12" :xl="10">
-      <h2>SteamGuard Response decoder</h2>
+      <h2>Steam令牌返回值反序列化</h2>
       <p>
-        Tool to decode SteamGuard AddAuthenticator or
-        RemoveAuthenticatorViaChallengeContinue response
+        本工具用于反序列化Steam令牌返回值，可用于以下接口的返回值解析
+        <br />
+        <br />
+        /ITwoFactorService/RemoveAuthenticatorViaChallengeContinue/
+        <br />
+        <br />
+        /ITwoFactorService/AddAuthenticator/
       </p>
       <el-input
         v-model="response"
         :autosize="{ minRows: 4 }"
         type="textarea"
-        placeholder="在此粘贴返回值，可为hex或者base64  |  Paste response as hex or base64"
+        placeholder="在此粘贴返回值，可为base64或者hex，请优先复制为base64"
       />
       <div style="margin: 20px 0" />
       <el-input
         v-model="request"
         :autosize="{ minRows: 1 }"
         type="textarea"
-        placeholder="可选，在此粘贴请求值，可为hex或者base64，仅在AddAuthenticator请求时有用  |  Optional, paste request as hex or base64, only useful for AddAuthenticator request"
+        placeholder="可选，在此粘贴请求值，可为base64或者hex，仅在AddAuthenticator请求时有用"
       />
       <div style="margin: 20px 0" />
       Random UUID:
