@@ -12,7 +12,9 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
+    env:
+      # https://github.com/webpack-contrib/thread-loader/issues/191#issuecomment-1728002022
+      UV_USE_IO_URING: 0
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
